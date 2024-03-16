@@ -1,80 +1,87 @@
 // See https://aka.ms/new-console-template for more information
 using System;
+using System.Numerics;
 using System.Threading;
 namespace Udemy.MultiThreading.Lecture2
 {
     public class Program
     {
-        public static void Main(string[] args) {
-            Major_1.MajorAction();
+        public static void Main(string[] args)
+        {
+            Major_2.MajorAction();
         }
 
-        public class Major_1() {
+        public class Major_1()
+        {
             static Thread thread;
             public static void MajorAction()
             {
+                thread = new Thread(Run);
+                thread.Start();
+                thread.Interrupt();
+                thread.Join();
+            }
+
+            public static void Run()
+            {
+                try
+                {
+                    Thread.Sleep(500000);
+                }
+                catch (ThreadInterruptedException e)
+                {
+                    Console.WriteLine("블럭킹 된 스레드 탈출");
+                }
             }
         }
+        public class Major_2()
+        {
+            static Thread thread;
+            static LongComputationTask longComputationTask;
+            public static void MajorAction()
+            {
+                longComputationTask = new LongComputationTask(200000, 100000);
+                thread = new Thread(longComputationTask.Run);
+                thread.Start();
+                Thread.Sleep(100);
+                thread.Interrupt();
+                thread.Join();                
+            }
+        }
+
+        class LongComputationTask
+        {
+            private BigInteger mBase;
+            private BigInteger mPower;
+            private Thread mThread;
+
+            public LongComputationTask(BigInteger _base, BigInteger _power)
+            {
+                this.mBase = _base;
+                this.mPower = _power;
+            }
+            public void Run()
+            {
+                BigInteger result = BigInteger.One;
+
+                for (BigInteger i = BigInteger.Zero; i.CompareTo(mPower) != 0; i += BigInteger.One)
+                {
+                    try {
+                        result *= mBase;
+                        Thread.Sleep(1);
+                    }
+                    catch (ThreadInterruptedException) {
+                        Console.WriteLine("Prematurely interrupted computation");
+                        Console.WriteLine(mBase + "^" + mPower + " = " + 0);
+                        return;
+                    }
+
+                }
+
+                Console.WriteLine(mBase + "^" + mPower + " = " + result);
+                return;
+            }
+        }
+
     }
 }
-
-
-// public class Main1 {
-//     public static void main(String [] args) {
-//         Thread thread = new Thread(new BlockingTask());
-
-//         thread.start();
-//     }
-
-//     private static class BlockingTask implements Runnable {
-
-//         @Override
-//         public void run() {
-//             //do things
-//             try {
-//                 Thread.sleep(500000);
-//             } catch (InterruptedException e) {
-//                 System.out.println("Existing blocking thread");
-//             }
-//         }
-//     }
-// }
-
-// public class Main2 {
-
-//     public static void main(String[] args) {
-//         Thread thread = new Thread(new LongComputationTask(new BigInteger("200000"), new BigInteger("100000000")));
-
-//         thread.start();
-//         thread.interrupt();
-//     }
-
-//     private static class LongComputationTask implements Runnable {
-//         private BigInteger base;
-//         private BigInteger power;
-
-//         public LongComputationTask(BigInteger base, BigInteger power) {
-//             this.base = base;
-//             this.power = power;
-//         }
-
-//         @Override
-//         public void run() {
-//             System.out.println(base + "^" + power + " = " + pow(base, power));
-//         }
-
-//         private BigInteger pow(BigInteger base, BigInteger power) {
-//             BigInteger result = BigInteger.ONE;
-
-//             for (BigInteger i = BigInteger.ZERO; i.compareTo(power) != 0; i = i.add(BigInteger.ONE)) {
-//                 if (Thread.currentThread().isInterrupted()) {
-//                     System.out.println("Prematurely interrupted computation");
-//                     return BigInteger.ZERO;
-//                 }
-//                 result = result.multiply(base);
-//             }
-
-//             return result;
-//         }
-//     }
-// }

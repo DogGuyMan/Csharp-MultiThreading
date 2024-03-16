@@ -3,6 +3,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 namespace Udemy.MultiThreading.Lecture3
 {
+    /*
     public class ImageProgram
     {
         public static void Main(string[] args)
@@ -91,6 +92,7 @@ namespace Udemy.MultiThreading.Lecture3
                     
         }
     }
+    */
 }
 
 /*
