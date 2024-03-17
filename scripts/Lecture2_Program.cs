@@ -4,6 +4,7 @@ using System.Numerics;
 using System.Threading;
 namespace Udemy.MultiThreading.Lecture2
 {
+    /*
     public class Program
     {
         public static void Main(string[] args)
@@ -84,4 +85,5 @@ namespace Udemy.MultiThreading.Lecture2
         }
 
     }
+    */
 }
