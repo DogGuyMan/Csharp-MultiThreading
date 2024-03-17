@@ -18,21 +18,24 @@ namespace Udemy.MultiThreading.Lecture3
     // http://localhost:8000/search?word=talk
     public class HTTPProgram
     {
-        const string INPUT_FILE = "./resources/war_and_peace.txt";
-        const int NUMBER_OF_THREADS = 1;
-
-        public static void Main(string[] args)
+        public class Major()
         {
-            try
+            const string INPUT_FILE = "./resources/war_and_peace.txt";
+            const int NUMBER_OF_THREADS = 1;
+            public static void MajorAction()
             {
-                var text = File.ReadAllText(INPUT_FILE);
-                StartServer(text);
-            }
-            catch (IOException)
-            {
-
+                try
+                {
+                    var text = File.ReadAllText(INPUT_FILE);
+                    StartServer(text);
+                }
+                catch (IOException)
+                {
+                
+                }
             }
         }
+
         public static void StartServer(String text)
         {
             //HttpListener가 비동기 요청을 처리할 때, .NET의 스레드 풀에서 스레드를 자동으로 할당받아 사용합니다.

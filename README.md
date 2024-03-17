@@ -6,10 +6,18 @@
 [SixLabors.ImageSharp](https://docs.sixlabors.com/index.html)
 * System.Drawing.Common은 Apple M1에서 지원하지 않아, SixLabors.ImageSharp을 사용
 
+### 실행
+
+```shell
+cd MultiThreading_Test
+dotnet run
+```
+
 ### 참조
 
 [Vscode 솔루션 파일 제작](https://stackoverflow.com/questions/36343223/create-c-sharp-sln-file-with-visual-studio-code)
 ![](./img/2024-03-16-02-26-34.png)
+
 
 ```
 NuGet 패키지 관리:

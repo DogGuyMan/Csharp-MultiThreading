@@ -3,15 +3,10 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 namespace Udemy.MultiThreading.Lecture3
 {
-    /*
+
     public class ImageProgram
     {
-        public static void Main(string[] args)
-        {
-            Major_1.MajorAction();
-        }
-
-        public class Major_1()
+        public class Major()
         {
             public const string SOURCE_FILE = "./resources/many-flowers.jpg";
             public const string DESTINATION_FILE = "./out/many-flowers.jpg";
@@ -92,31 +87,4 @@ namespace Udemy.MultiThreading.Lecture3
                     
         }
     }
-    */
 }
-
-/*
-using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Threading;
-using System.Linq;
-namespace Udemy.MultiThreading.Lecture3
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            Major_1.MajorAction();
-        }
-
-        public class Major_1()
-        {
-            public static void MajorAction()
-            {
-            }
-        }
-
-    }
-}
-*/
