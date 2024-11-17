@@ -16,6 +16,11 @@ dotnet run
 ### 참조
 
 [Vscode 솔루션 파일 제작](https://stackoverflow.com/questions/36343223/create-c-sharp-sln-file-with-visual-studio-code)
+
+```shell
+dotnet new console
+```
+
 ![](./img/2024-03-16-02-26-34.png)
 
 
