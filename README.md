@@ -1,10 +1,7 @@
 # Udemy 멀티스레드 강좌 공부 노트
+
+#### 다음 강좌를 C#으로 제작
 > #### [Udemy : Java 멀티스레딩, 병행성 및 성능 최적화 - 전문가 되기](https://www.udemy.com/course/java-multi-threading/?couponCode=KEEPLEARNING)
-다음 강좌를 C#으로 제작
-
-
-[SixLabors.ImageSharp](https://docs.sixlabors.com/index.html)
-* System.Drawing.Common은 Apple M1에서 지원하지 않아, SixLabors.ImageSharp을 사용
 
 ---
 
@@ -40,6 +37,7 @@ dotnet new console
               └── main.cs
   ```
 * Preferences: Open Workspace Settings (JSON)
+  ![](image/2024-11-17-20-17-14.png)
   ```json
   /* setting.json */
   {
@@ -54,22 +52,29 @@ dotnet new console
 ![](./img/2024-03-16-02-26-34.png)
 
 1. ##### 터미널로 패키지관리
-  * VS Code에서 내장 터미널을 열고(Ctrl+`` 또는 Cmd+`` on macOS), 프로젝트 디렉토리로 이동
-  * dotnet add package [패키지 이름] 명령어를 사용하여 NuGet 패키지를 프로젝트에 추가.
-    * *예를 들어, Newtonsoft.Json 패키지를 추가하려면 dotnet add package Newtonsoft.Json 명령을 사용*
+   * VS Code에서 내장 터미널을 열고(Ctrl+`` 또는 Cmd+`` on macOS), 프로젝트 디렉토리로 이동
+   * dotnet add package [패키지 이름] 명령어를 사용하여 NuGet 패키지를 프로젝트에 추가.
+     * *예를 들어, Newtonsoft.Json 패키지를 추가하려면 dotnet add package Newtonsoft.Json 명령을 사용*
  
 2. ##### NuGet 으로 확장 기능 사용
-  * VS Code NuGet 패키지를 검색
-  * NuGet Package Manager 확장 기능을 설치시 VS Code 내에서 직접 NuGet 패키지를 검색하고 설치할 수 있음
-  * 커맨드 팔레트(Ctrl+Shift+P 또는 Cmd+Shift+P on macOS)를 열고 해당 확장 기능의 명령을 사용하여 패키지를 관리할 수 있습니다.
+   * VS Code NuGet 패키지를 검색
+   * NuGet Package Manager 확장 기능을 설치시 VS Code 내에서 직접 NuGet 패키지를 검색하고 설치할 수 있음
+   * 커맨드 팔레트(Ctrl+Shift+P 또는 Cmd+Shift+P on macOS)를 열고 해당 확장 기능의 명령을 사용하여 패키지를 관리할 수 있습니다.
 
 #### 4). 프로젝트 빌드 및 실행
+
 1. ##### 빌드
-  * NuGet 패키지를 프로젝트에 추가한 후, 터미널에서 dotnet build 명령을 실행하여 프로젝트를 빌드
+   * NuGet 패키지를 프로젝트에 추가한 후, 
+   * 터미널에서 dotnet build 명령을 실행하여 프로젝트를 빌드
 
 2. ##### 프로젝트 실행
-  * dotnet run 명령을 실행하여 프로젝트를 실행할 수 있습니다.
-    ```shell
-    cd MultiThreading_Test
-    dotnet run
-    ```
+   * dotnet run 명령을 실행하여 프로젝트를 실행할 수 있습니다.
+      ```shell
+      cd MultiThreading_Test
+      dotnet run
+      ```
+
+> ### 4. 추가한 패키지
+
+* #### [SixLabors.ImageSharp](https://docs.sixlabors.com/index.html)
+  * System.Drawing.Common은 Apple M1에서 지원하지 않아, SixLabors.ImageSharp을 사용
