@@ -42,7 +42,7 @@ namespace Udemy.MultiThreading.Lecture1
                 thread.Start(thread);
             }
             // ThreadStart는 Java.Runnable를 대체한다. 
-            static void Run(object threadInfo)
+            static void Run(object? threadInfo)
             {
                 try {
                     throw new Exception("intentional exception");

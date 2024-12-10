@@ -6,26 +6,23 @@ namespace Udemy.MultiThreading.Lecture3
 
     public class ImageProgram
     {
-        public class Major()
+        public const string SOURCE_FILE = "./resources/many-flowers.jpg";
+        public const string DESTINATION_FILE = "./out/many-flowers.jpg";
+        public static void MajorAction()
         {
-            public const string SOURCE_FILE = "./resources/many-flowers.jpg";
-            public const string DESTINATION_FILE = "./out/many-flowers.jpg";
-            public static void MajorAction()
-            {
-                using (Image<Rgba32> originImage = Image.Load<Rgba32>(SOURCE_FILE)) {
-                    Image<Rgba32> resultImage = originImage.CloneAs<Rgba32>();
-                    
-                    Stopwatch stopwatch = Stopwatch.StartNew();
-                    
-                    // RecolorImage(originImage, resultImage, 0,0, originImage.Width, originImage.Height);
-                    RecolorSingleThreaded(originImage, resultImage, 6);
+            using (Image<Rgba32> originImage = Image.Load<Rgba32>(SOURCE_FILE)) {
+                Image<Rgba32> resultImage = originImage.CloneAs<Rgba32>();
+                
+                Stopwatch stopwatch = Stopwatch.StartNew();
+                
+                // RecolorImage(originImage, resultImage, 0,0, originImage.Width, originImage.Height);
+                RecolorSingleThreaded(originImage, resultImage, 6);
 
-                    stopwatch.Stop();
-                    
-                    Console.WriteLine($"Operation took {stopwatch.ElapsedMilliseconds} milliseconds.");
+                stopwatch.Stop();
+                
+                Console.WriteLine($"Operation took {stopwatch.ElapsedMilliseconds} milliseconds.");
 
-                    resultImage.SaveAsJpeg(DESTINATION_FILE);
-                }
+                resultImage.SaveAsJpeg(DESTINATION_FILE);
             }
         }
 

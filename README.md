@@ -49,7 +49,7 @@ dotnet new console
 
 > ### 3. NuGet 패키지 관리
 
-![](./img/2024-03-16-02-26-34.png)
+![](./image/2024-03-16-02-26-34.png)
 
 1. ##### 터미널로 패키지관리
    * VS Code에서 내장 터미널을 열고(Ctrl+`` 또는 Cmd+`` on macOS), 프로젝트 디렉토리로 이동
@@ -73,6 +73,24 @@ dotnet new console
       cd MultiThreading_Test
       dotnet run
       ```
+3. ##### 디버깅
+     1. csproj 리소스와 결과디렉토리를 명시한다
+          ```xml
+          <ItemGroup>
+            <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
+            <!-- 
+              여기서 부터 Content하고 include 하고 감싸준다.
+            --> 
+            <Content Include="resources/*.*">
+              <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            </Content>
+            <Content Include="out/*.*">
+              <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            </Content>
+          </ItemGroup>
+          ```
+     2. launch.json도 수정하자
+     3. ![](image/2024-12-10-19-33-49.png)
 
 > ### 4. 추가한 패키지
 

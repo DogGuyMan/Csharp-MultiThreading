@@ -90,7 +90,7 @@ namespace Udemy.MultiThreading.Lecture2
         static int timeout = 2000;
         public static void MajorAction()
         {
-            List<long> inputNumbers = new List<long>(new long[] { 0L, 100000000L, 3435L, 35435L, 2324L, 4656L, 23L, 5556L });
+            List<long> inputNumbers = new List<long>(new long[] { 0L, 10000L, 335L, 35435L, 234L, 4656L, 23L, 556L });
 
             List<FactorialThread> factorialThreads = new List<FactorialThread>();
 
