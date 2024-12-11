@@ -73,7 +73,7 @@ namespace Udemy.MultiThreading.Lecture3 {
             // Get the current settings.
             ThreadPool.GetMinThreads(out minWorker, out minIOC); // 8, 1
             Console.WriteLine($"Default Worker {minWorker}, Default IOC {minIOC}");
-            minWorker = (int)Math.Pow(2, (int)(Math.Log2(FIBO_CALCULATION) + 1)); 
+            minWorker = 2 << (int)(Math.Log2(FIBO_CALCULATION) + 1); 
             Console.WriteLine($"Changed Worker {minWorker}, Changed IOC {minIOC}"); // 16, 1
             ThreadPool.SetMinThreads(minWorker, minIOC);
 
@@ -99,6 +99,8 @@ namespace Udemy.MultiThreading.Lecture3 {
                 disposable.Dispose();
             }
          }
+
+        public static int Foo(int a) => a;
     }
 
     public class Fibonacci {
