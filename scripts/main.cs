@@ -1,5 +1,6 @@
 using Udemy;
 using Udemy.MultiThreading;
+
 public class Program
 {
     public static void Main(string[] args) {
@@ -7,6 +8,11 @@ public class Program
         // Udemy.MultiThreading.Lecture3.ImageProgram.MajorAction();
         // Udemy.MultiThreading.Lecture3.HTTPProgram.MajorAction();
         // Udemy.MultiThreading.Lecture3.ThreadPoolClassExample.MajorAction();
-        Udemy.MultiThreading.Lecture3.APMExample_1.MajorAction();
+        // Udemy.MultiThreading.Lecture3.APMExample_1.MajorAction();
+        // Udemy.MultiThreading.Lecture3.TaskExample_1.MajorAction();
+        // Udemy.MultiThreading.Lecture3.TaskExample_2.MajorAction();
+        // Udemy.MultiThreading.Lecture3.TaskExample_3.Major4.MajorAction();
+        Udemy.MultiThreading.Lecture3.TaskExample_4.MajorAction();
+    
     }
 }
