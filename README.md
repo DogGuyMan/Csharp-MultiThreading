@@ -74,6 +74,7 @@ dotnet new console
       dotnet run
       ```
 3. ##### 디버깅
+   * 빌드 바이너리 디렉토리에 리소스가 경로를 못찾아오는 문제가 있었다.
      1. csproj 리소스와 결과디렉토리를 명시한다
           ```xml
           <ItemGroup>
@@ -90,9 +91,27 @@ dotnet new console
           </ItemGroup>
           ```
      2. launch.json도 수정하자
+        ```json
+        "configurations": [
+          {
+            "name": "C#: Multi Thread Main Debug",
+            "type": "dotnet",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/Debug/net8.0/MultiThreading_Test.dll",
+            "projectPath": "${workspaceFolder}/MultiThreading_Test.csproj",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+          }
+        ]
+        ```
      3. ![](image/2024-12-10-19-33-49.png)
 
 > ### 4. 추가한 패키지
 
 * #### [SixLabors.ImageSharp](https://docs.sixlabors.com/index.html)
   * System.Drawing.Common은 Apple M1에서 지원하지 않아, SixLabors.ImageSharp을 사용
+
+* #### [Microsoft.Extensions.ObjectPool](https://www.nuget.org/packages/microsoft.extensions.objectpool/)
+* #### [Newtonsoft.Json](https://www.nuget.org/packages/newtonsoft.json/)

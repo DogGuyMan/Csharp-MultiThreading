@@ -12,6 +12,7 @@ namespace Udemy.MultiThreading.Lecture3
         public static void MajorAction()
         {
             // https://learn.microsoft.com/ko-kr/dotnet/api/microsoft.extensions.objectpool.objectpool-1
+            
             ObjectPool<List<Task>> listPool = ObjectPool.Create<List<Task>>();
 
             #region 1 Task Factory StartNew

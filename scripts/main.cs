@@ -12,7 +12,8 @@ public class Program
         // Udemy.MultiThreading.Lecture3.TaskExample_1.MajorAction();
         // Udemy.MultiThreading.Lecture3.TaskExample_2.MajorAction();
         // Udemy.MultiThreading.Lecture3.TaskExample_3.Major4.MajorAction();
-        Udemy.MultiThreading.Lecture3.TaskExample_4.MajorAction();
+        // Udemy.MultiThreading.Lecture3.TaskExample_4.MajorAction();
+        Udemy.MultiThreading.Lecture3.ParallelExample_1.MajorAction();
     
     }
 }
