@@ -41,7 +41,6 @@ namespace Udemy.MultiThreading.Lecture3 {
         }
         #endregion
 
-
         // 1 첫번째 "병렬 처리하고 싶은 작업 메서드" 작성하기
         #region Job Method 1
             // stack 에 저장되는 스레드내 공유되지 않은 데이터를 쓰는 예시지만,

@@ -227,6 +227,9 @@ AppPackages/
 resources/
 out/
 
+# Client Server
+[Cc]lient
+
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
