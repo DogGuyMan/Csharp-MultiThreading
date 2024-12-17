@@ -14,7 +14,7 @@ namespace Udemy.MultiThreading.Lecture3
     public class HTTPProgram
     {
         const string INPUT_FILE = "./resources/war_and_peace.txt";
-        const int NUMBER_OF_THREADS = 8;
+        const int NUMBER_OF_THREADS = 2;
 
         public static void MajorAction()
         {
@@ -31,67 +31,92 @@ namespace Udemy.MultiThreading.Lecture3
 
         public static void StartServer(String text)
         {
-            using (HttpServer httpServer = new HttpServer(IPAddress.Any, 8000)) {
-
-                httpServer.SetMinWorker(NUMBER_OF_THREADS);
-                // WordCountHandler handler = new WordCountHandler(text);
-                // httpServer.ProcessRequest += handler.ProcessRequest;
-                httpServer.Start().Wait();
+            HttpServer httpServer = new HttpServer(NUMBER_OF_THREADS);
+                WordCountHandler handler = new WordCountHandler(text);
+                httpServer.ProcessRequest += handler.ProcessRequest;
+                httpServer.Start(8000);
                 Console.WriteLine("Listening...");
-            }
+            
         }
 
-        public class HttpServer : IDisposable {
-            private int minWorker = -1; 
-            private int minIOC = -1;
-            private readonly HttpListener listener;
 
-            public HttpServer(IPAddress address, int port) {
+        class HttpServer : IDisposable
+        {
+            private readonly int _maxThreads;
+            private readonly HttpListener _listener;
+            private readonly Thread _listenerThread;
+            private readonly ManualResetEvent _stop, _idle;
+            private readonly Semaphore _busy;
 
-                listener = new HttpListener();
-                listener.Prefixes.Add(String.Format(@"http://+:{0}/", port));
+            public HttpServer(int maxThreads)
+            {
+                _maxThreads = maxThreads;
+                _stop = new ManualResetEvent(false);
+                _idle = new ManualResetEvent(false);
+                _busy = new Semaphore(maxThreads, maxThreads);
+                _listener = new HttpListener();
+                _listenerThread = new Thread(HandleRequests);
             }
 
-            public void SetMinWorker(int minThreads) {
-                if(minWorker == -1 ||  minIOC == -1) 
-                    ThreadPool.GetMinThreads(out minWorker, out minIOC);
-                minWorker = minThreads;
-                ThreadPool.SetMinThreads(minThreads, minIOC);
+            public void Start(int port)
+            {
+                _listener.Prefixes.Add(String.Format(@"http://+:{0}/", port));
+                _listener.Start();
+                _listenerThread.Start();
             }
 
             public void Dispose()
+            { Stop(); }
+
+            public void Stop()
             {
-                listener.Stop();
+                _stop.Set();
+                _listenerThread.Join();
+                _idle.Reset();
+
+                //aquire and release the semaphore to see if anyone is running, wait for idle if they are.
+                _busy.WaitOne();
+                if (_maxThreads != 1 + _busy.Release())
+                    _idle.WaitOne();
+
+                _listener.Stop();
             }
 
-            public async Task Start() {
-                listener.Start();
+            private void HandleRequests()
+            {
+                while (_listener.IsListening)
+                {
+                    var context = _listener.BeginGetContext(ListenerCallback, null);
 
-                while(true) {
-                    var context = await Task.Factory.FromAsync<HttpListenerContext>(listener.BeginGetContext(RequestCallback, listener), listener.EndGetContext);
-                    Task.Factory.StartNew(AsyncPrecessRequest, context);
+                    if (0 == WaitHandle.WaitAny(new[] { _stop, context.AsyncWaitHandle }))
+                        return;
                 }
             }
 
-            private void RequestCallback(IAsyncResult ar) {
-                if(listener == null) return;
-                if(!listener.IsListening) return;
-                if(ar.AsyncState is HttpListener) {
-                    HttpListener httpListener = (HttpListener)ar.AsyncState;
-                    var context = httpListener.GetContext();
+            private void ListenerCallback(IAsyncResult ar)
+            {
+                _busy.WaitOne();
+                try
+                {
+                    HttpListenerContext context;
+                    try
+                    { context = _listener.EndGetContext(ar); }
+                    catch (HttpListenerException)
+                    { return; }
+
+                    if (_stop.WaitOne(0, false))
+                        return;
+
                     ProcessRequest(context);
                 }
-            }
-
-            public void AsyncPrecessRequest(object? state) {
-                if(state is HttpListenerContext) {
-                    ProcessRequest((HttpListenerContext)state);
+                finally
+                {
+                    if (_maxThreads == 1 + _busy.Release())
+                        _idle.Set();
                 }
             }
-            
             public event Action<HttpListenerContext> ProcessRequest;
         }
-
         public class WordCountHandler
         {
             private String text;
@@ -103,7 +128,8 @@ namespace Udemy.MultiThreading.Lecture3
                 this.httpListenerRef = listenerRef;
             }
 
-            public WordCountHandler(String text) : this(text, null) {
+            public WordCountHandler(String text) : this(text, null)
+            {
 
             }
 

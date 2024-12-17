@@ -27,7 +27,7 @@ dotnet new console
 > ### 2. vscode IntelliCode
 
 * 솔루션 파일만 제작했다 하더라도 인텔리 센스가 작동 안할 때가 있다.
-* 그럴떄는 폴더 구조가 루트 디렉토리에 `.vscode` 폴더 만들고, setting.json 파일을 만들어야 한다.
+* 그럴때는 폴더 구조가 루트 디렉토리에 `.vscode` 폴더 만들고, setting.json 파일을 만들어야 한다.
   ```
     ROOT
       ├── .vscode

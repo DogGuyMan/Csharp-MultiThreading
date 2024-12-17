@@ -62,7 +62,7 @@ namespace Udemy.MultiThreading.Lecture3 {
         }
         #endregion
 
-        // 3 세번쨰 "비동기 호출을 시작하는 메서드" 작성
+        // 3 세번째 "비동기 호출을 시작하는 메서드" 작성
         #region 3 BeginXXX Method
             // state 에는 병렬 처리를 수행하는 주체인 APMFactorial이 들어간다.
             // https://github.com/dotnet/runtime/issues/16312#issuecomment-182107557 그런데.. 사용 못한다 ㅠ
@@ -72,7 +72,7 @@ namespace Udemy.MultiThreading.Lecture3 {
         }
         #endregion
 
-        // 4 네번쨰 "IAsyncResult를 인자로 받는 비동기 종료 메서드 작성"
+        // 4 네번째 "IAsyncResult를 인자로 받는 비동기 종료 메서드 작성"
         #region 4 EndXXX Method
         public BigInteger EndGetFactorial(IAsyncResult asyncResult) {
             return delegateJob.EndInvoke(asyncResult);
