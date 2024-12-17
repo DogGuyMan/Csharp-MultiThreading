@@ -5,9 +5,6 @@ using System.Threading;
 using System.Linq;
 namespace Udemy.MultiThreading.Lecture4
 {
-    public interface IRunnable {
-        public void Run();
-    }
     /***
     SafeActions Counter's Count 0
     UnsafeActions Counter's Count -1811

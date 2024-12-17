@@ -17,7 +17,8 @@ public class Program
         // Udemy.MultiThreading.Lecture3.TaskExample_4.MajorAction();
         // Udemy.MultiThreading.Lecture3.ParallelExample_1.MajorAction();
         // Udemy.MultiThreading.Lecture4.CriticalSectionProgram.MajorAction();
-        Udemy.MultiThreading.Lecture5.SyncCriticalSectionProgram.MajorAction();
-    
+        // Udemy.MultiThreading.Lecture5.SynchronizedCollectionMajor.MajorAction();
+        // Udemy.MultiThreading.Lecture5.DataRaceMajor.MajorAction();
+        Udemy.MultiThreading.Lecture5.DeadLockProgram.MajorAction();
     }
 }

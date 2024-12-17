@@ -2,8 +2,8 @@
 using System;
 using System.Threading;
 
-public interface IThreadStartable {
-    public void Start();
+public interface IRunnable {
+    public void Run();
 }
 
 namespace Udemy.MultiThreading.Lecture1
@@ -78,7 +78,7 @@ namespace Udemy.MultiThreading.Lecture1
 #region MultiThread
 
         public class Major_4 {
-            static List<IThreadStartable> threads = new();
+            static List<IRunnable> threads = new();
             static System.Random random = new();
             static Vault vault;
             public static void MajorAction() {
@@ -87,7 +87,7 @@ namespace Udemy.MultiThreading.Lecture1
                 threads.Add(new DescendingHacker(vault));
                 threads.Add(new Police());
 
-                threads.ForEach(T => T.Start());
+                threads.ForEach(T => T.Run());
             }
         }
 
@@ -105,7 +105,7 @@ namespace Udemy.MultiThreading.Lecture1
             }
         }
 
-        abstract class Hacker : IThreadStartable {
+        abstract class Hacker : IRunnable {
             public Thread HackerThread;
             protected Vault mTargetVault;
             public Hacker(Vault _target) {
@@ -118,14 +118,14 @@ namespace Udemy.MultiThreading.Lecture1
                 Console.WriteLine($"{HackerThread.Name}가 금고를 해킹하기 시작함");
                 this.HackerThread.Start();
             }
-            protected abstract void Run();
+            public abstract void Run();
         }
 
         class AscendingHacker : Hacker
         {
             public AscendingHacker(Vault _target) : base(_target){}
 
-            protected override void Run()
+            public override void Run()
             {
                 for(int guess = 0; guess <= 9999; guess++) {
                     if(this.mTargetVault.IsCorrectPassword(guess)) {
@@ -140,7 +140,7 @@ namespace Udemy.MultiThreading.Lecture1
         {
             public DescendingHacker(Vault _target) : base(_target){}
 
-            protected override void Run()
+            public override void Run()
             {
                 for(int guess = 9999; guess >= 0; guess--) {
                     if(this.mTargetVault.IsCorrectPassword(guess)) {
@@ -151,7 +151,7 @@ namespace Udemy.MultiThreading.Lecture1
             }
         }
 
-        class Police : IThreadStartable{
+        class Police : IRunnable{
             public Thread PoliceThread;
             public Police() {
                 PoliceThread = new Thread(Run);
@@ -162,7 +162,7 @@ namespace Udemy.MultiThreading.Lecture1
                 Console.WriteLine("경찰도 음직이기 시작.");
                 PoliceThread.Start();
             }
-            private void Run() {
+            public void Run() {
                 for(int i = 10; i > 0; i--) {
                     try {
                         Console.WriteLine(i);
