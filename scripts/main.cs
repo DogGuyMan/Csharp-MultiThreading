@@ -4,6 +4,7 @@ using Udemy.MultiThreading;
 public class Program
 {
     public static void Main(string[] args) {
+        Udemy.MultiThreading.Lecture1.Major_4.MajorAction();
         // Udemy.MultiThreading.Lecture2.Major_1.MajorAction();
         // Udemy.MultiThreading.Lecture2.Major_2.MajorAction();
         // Udemy.MultiThreading.Lecture2.Major_3.MajorAction();
@@ -19,6 +20,6 @@ public class Program
         // Udemy.MultiThreading.Lecture4.CriticalSectionProgram.MajorAction();
         // Udemy.MultiThreading.Lecture5.SynchronizedCollectionMajor.MajorAction();
         // Udemy.MultiThreading.Lecture5.DataRaceMajor.MajorAction();
-        Udemy.MultiThreading.Lecture5.DeadLockProgram.MajorAction();
+        // Udemy.MultiThreading.Lecture5.DeadLockProgram.MajorAction();
     }
 }
