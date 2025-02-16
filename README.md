@@ -2,7 +2,9 @@
 
 #### 다음 강좌를 C#으로 제작
 
-#### [Udemy : Java 멀티스레딩, 병행성 및 성능 최적화 - 전문가 되기](https://www.udemy.com/course/java-multi-threading/?couponCode=KEEPLEARNING)
+1. #### [Udemy : Java 멀티스레딩, 병행성 및 성능 최적화 - 전문가 되기](https://www.udemy.com/course/java-multi-threading/?couponCode=KEEPLEARNING)
+2. #### [Inflearn : Backend 멀티쓰레드 이해하고 통찰력 키우기 ⭐️추가⭐️](https://inf.run/JAtvq) 
+    *C#언어로 강의를 진행하고, 다양한 멀티 스레딩 패턴과, CPU 구조 등등 정말 유용한 강의!*
 
 #### 도움을 얻은 블로그와 유튜브
 
@@ -13,6 +15,7 @@
 5. [예제로 배우는 C# 프로그래밍 : 멀티 쓰레딩](https://www.csharpstudy.com/Threads/async-delegate.aspx)
 6. [jacking75 : 데이터 병렬처리 & 작업기반 비동기 프로그램 문법](https://jacking75.github.io/csharp_TPL/)
    * [jacking75 : 유튜브](https://www.youtube.com/user/jacking75)
+7. [모꾼 TV : Multi Thread 배우고 통찰력 높이기](https://www.youtube.com/watch?v=jbH2HRuot_Y&list=PLR24aVs517wgs8uL1UawG8CgHQWYMx202)
 
 ---
 

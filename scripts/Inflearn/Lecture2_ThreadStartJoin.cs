@@ -20,9 +20,12 @@ Thread Name thread1's State : Stopped
 Thread Name thread2's State : Stopped
 All done!
 */
-namespace Inflearn.MultiThreading.Lecture2 {
-    public class ThreadStartJoin {
-        public static void MajorAction(string[] args) {
+namespace Inflearn.MultiThreading.Lecture2
+{
+    public class ThreadStartJoin
+    {
+        public static void MajorAction(string[] args)
+        {
             Console.WriteLine("Process Start!");
             List<Thread> threads = new List<Thread>();
             bool isFinished = false;
@@ -32,7 +35,7 @@ namespace Inflearn.MultiThreading.Lecture2 {
             var mainPollerChecker = new Thread(mainPoller.MainThreadStatePolling);
             var thread1 = new Thread(new ParameterizedThreadStart(DoWork));
             var thread2 = new Thread(new ParameterizedThreadStart(DoWork));
-            
+
             mainPollerChecker.Name = "mainPoller";
             thread1.Name = "thread1";
             thread2.Name = "thread2";
@@ -41,19 +44,22 @@ namespace Inflearn.MultiThreading.Lecture2 {
 
 
             mainPollerChecker.Start();
-            threads.ForEach(t => {
+            threads.ForEach(t =>
+            {
                 Console.WriteLine("Thread Name {0}'s State : {1}", t.Name, t.ThreadState);
             });
-            
+
             // Started But not Performed
-            threads.ForEach(t => {
+            threads.ForEach(t =>
+            {
                 t.Start();
                 Console.WriteLine("Thread Name {0}'s State : {1}", t.Name, t.ThreadState);
             });
 
 
             // Wait/Sleep/Join
-            threads.ForEach(t => {
+            threads.ForEach(t =>
+            {
                 t.Join();
                 Console.WriteLine("Thread Name {0}'s State : {1}", t.Name, t.ThreadState);
             });
@@ -64,30 +70,10 @@ namespace Inflearn.MultiThreading.Lecture2 {
 
         private static void DoWork(object? obj)
         {
-                Console.WriteLine("Doing work...");
-                Thread.Sleep(1000);
-                Console.WriteLine("Work Done!");
+            Console.WriteLine("Doing work...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Work Done!");
         }
     }
 
-    internal class ThreadPoller {
-        private Thread mMainThread;
-        private Func<bool> mIsFinishedRef;
-        private ThreadState mPrevState;
-        public ThreadPoller(Thread mainThread, Func<bool> funcBool) {
-            mMainThread = mainThread;
-            mIsFinishedRef = funcBool;
-            mPrevState = mMainThread.ThreadState;
-            Console.WriteLine("PrevState Changed!! {0} to {1}", mPrevState, mMainThread.ThreadState);
-        }
-        public void MainThreadStatePolling() {
-            for(;;) {
-                if(mIsFinishedRef.Invoke() == true) break;
-                if(mPrevState != mMainThread.ThreadState) {
-                    Console.WriteLine("PrevState Changed!! {0} to {1}", mPrevState, mMainThread.ThreadState);
-                    mPrevState = mMainThread.ThreadState;
-                }
-            }
-        }
-    }
 }
