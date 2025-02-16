@@ -65,7 +65,7 @@ using System.Threading;
     ***/
 // 네번째는 스레드 풀의 스레드 최소 개수를 정해줘보자. ✅
 
-namespace Udemy.MultiThreading.Lecture3 {
+namespace MyExtra.MultiThreading.Lecture3 {
     public class ThreadPoolClassExample {
         const int FIBO_CALCULATION = 9;
         public static void MajorAction() {

@@ -1,4 +1,3 @@
-
 using System;
 using System.Reflection;
 using System.Threading;
@@ -10,7 +9,7 @@ public interface IRunnable
 
 namespace Udemy.MultiThreading.Lecture1
 {
-
+    
     #region Sleep
     public class Major_1
     {

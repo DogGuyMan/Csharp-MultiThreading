@@ -3,7 +3,7 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Microsoft.Extensions.ObjectPool;
 
-namespace Udemy.MultiThreading.Lecture3
+namespace MyExtra.MultiThreading.Lecture3
 {
     // 1 Task 만드는 법
     #region 1 Create Task

@@ -4,7 +4,7 @@ using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
-namespace Udemy.MultiThreading.Lecture3 {
+namespace MyExtra.MultiThreading.Lecture3 {
     /***
     Executing sequential loop...
     Sequential loop time in milliseconds: 503

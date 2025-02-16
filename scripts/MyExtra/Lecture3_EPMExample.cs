@@ -3,7 +3,7 @@ using System.Numerics;
 
 // https://blog.naver.com/vactorman/80167390138
 
-namespace Udemy.MultiThreading.Lecture3
+namespace MyExtra.MultiThreading.Lecture3
 {
     // 여기서 궁금한것은 비동기로 
     // 돌릴 액션

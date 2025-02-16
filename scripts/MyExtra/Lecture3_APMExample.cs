@@ -2,7 +2,7 @@ using System.Numerics;
 
 // https://blog.naver.com/vactorman/80167390138
 
-namespace Udemy.MultiThreading.Lecture3 {
+namespace MyExtra.MultiThreading.Lecture3 {
     public class APMExample_1
     {
         const int N = 10;
