@@ -59,6 +59,12 @@ dotnet new console
   }
   ```
 
+* 이번에는 "Failed create URI from './packs'; original string: './packs'." 발생
+  ![](image/2025-02-19-16-24-05.png)
+  1. **[Dotnet Install Tool Extension 세팅](https://github.com/microsoft/vscode-dotnettools/issues/1763)**
+    ![](image/2025-02-19-16-33-22.png)
+  2. **[.NET 9.0이 2월 11일에 나와서 거짓말 같이 내려받으니 괜찮아진 것 같다.](https://dotnet.microsoft.com/ko-kr/download)**
+
 ---
 
 > ### 3. NuGet 패키지 관리

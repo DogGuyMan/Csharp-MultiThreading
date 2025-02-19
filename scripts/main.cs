@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 public class Program
 {
+    // args는 0부터 시작한다.
     public static void Main(string[] args) {
-        if(args[1] == "Lecture") {
+        for(int i = 0; i < args.Length; i++) {
+            Console.WriteLine(args[i]);
+        }
+        if( args.Length == 0 || args[0] == "Lecture") {
             Console.WriteLine("Lecture Run");
             // Udemy.MultiThreading.Lecture2.Major_1.MajorAction();
             // Inflearn.MultiThreading.Lecture2.ThreadStartJoin.MajorAction(args);
@@ -14,7 +18,7 @@ public class Program
             // MyExtra.MultiThreading.IOOnIOThread.Major.MajorAction();
             // Inflearn.MultiThreading.Lecture4.GuardedSuspension.MajorAction();
         }
-        if(args[1] == "Test") {
+        else if(args[0] == "Test") {
             Console.WriteLine("Test Run");
         }
     }
