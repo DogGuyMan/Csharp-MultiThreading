@@ -9,6 +9,7 @@ public class Program
         // Udemy.MultiThreading.Lecture2.Major_1.MajorAction();
         // Inflearn.MultiThreading.Lecture2.ThreadStartJoin.MajorAction(args);
         // MyExtra.MultiThreading.IOOnWorkerThread.Major.MajorAction();
-        MyExtra.MultiThreading.IOOnIOThread.Major.MajorAction();
+        // MyExtra.MultiThreading.IOOnIOThread.Major.MajorAction();
+        Inflearn.MultiThreading.Lecture4.GuardedSuspension.MajorAction();
     }
 }
