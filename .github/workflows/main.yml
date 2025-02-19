@@ -14,5 +14,5 @@ jobs :
          run: dotnet --version
       -  name: 루트 파일만 가져오기!! 이걸 안하면 코드 실행 못함
          uses: actions/checkout@v4
-      -  name: .Net 버젼 출력!!
-         run: dotnet run Test
+      -  name: .Net 코드 실행하기
+         run: dotnet run --property WarningLevel=0 Test
