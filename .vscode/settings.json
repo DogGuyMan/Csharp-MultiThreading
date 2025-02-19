@@ -1,0 +1,6 @@
+{
+    "dotnet.defaultSolution": "MultiThreading_Test.sln",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.tabSize": 4,
+    "editor.indentSize": 4,
+}

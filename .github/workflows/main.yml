@@ -1,0 +1,14 @@
+name: helloGithubAction
+
+on: [push]
+
+jobs : 
+   build:
+      runs-on: ubuntu-latest
+      steps:
+      -  name : 환영 인사 출력!!
+         run: echo Hello, world!
+      -  name: 디렉토리 출력!!
+         run: ls -al   
+      -  name: .Net 버젼 출력!!
+         run: dotnet --version
