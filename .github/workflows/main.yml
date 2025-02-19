@@ -12,3 +12,5 @@ jobs :
          run: ls -al   
       -  name: .Net 버젼 출력!!
          run: dotnet --version
+      -  name: .Net 버젼 출력!!
+         run: dotnet run Test
