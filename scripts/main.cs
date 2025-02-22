@@ -17,6 +17,10 @@ public class Program
             // MyExtra.MultiThreading.IOOnWorkerThread.Major.MajorAction();
             // MyExtra.MultiThreading.IOOnIOThread.Major.MajorAction();
             // Inflearn.MultiThreading.Lecture4.GuardedSuspension.MajorAction();
+            // Inflearn.MultiThreading.Lecture6.ProducerConsumer pc = new Inflearn.MultiThreading.Lecture6.ProducerConsumer();
+            // pc.StartUp();
+            Inflearn.MultiThreading.Lecture9.WorkerThread wt = new Inflearn.MultiThreading.Lecture9.WorkerThread();
+            wt.StartUp();
         }
         else if(args[0] == "Test") {
             Console.WriteLine("Test Run");
