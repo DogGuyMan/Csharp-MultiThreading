@@ -19,8 +19,10 @@ public class Program
             // Inflearn.MultiThreading.Lecture4.GuardedSuspension.MajorAction();
             // Inflearn.MultiThreading.Lecture6.ProducerConsumer pc = new Inflearn.MultiThreading.Lecture6.ProducerConsumer();
             // pc.StartUp();
-            Inflearn.MultiThreading.Lecture9.WorkerThread wt = new Inflearn.MultiThreading.Lecture9.WorkerThread();
-            wt.StartUp();
+            // Inflearn.MultiThreading.Lecture9.WorkerThread wt = new Inflearn.MultiThreading.Lecture9.WorkerThread();
+            // wt.StartUp();
+            Inflearn.MultiThreading.Lecture10.Major fut = new Inflearn.MultiThreading.Lecture10.Major();
+            fut.StartUp();
         }
         else if(args[0] == "Test") {
             Console.WriteLine("Test Run");
