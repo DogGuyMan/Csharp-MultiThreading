@@ -15,6 +15,7 @@
 5. [예제로 배우는 C# 프로그래밍 : 멀티 쓰레딩](https://www.csharpstudy.com/Threads/async-delegate.aspx)
 6. [jacking75 : 데이터 병렬처리 & 작업기반 비동기 프로그램 문법](https://jacking75.github.io/csharp_TPL/)
    * [jacking75 : 유튜브](https://www.youtube.com/user/jacking75)
+   * [C# 멀티스레드 프로그래밍 정리](https://github.com/jacking75/csharp_multithread_programming)
 7. [모꾼 TV : Multi Thread 배우고 통찰력 높이기](https://www.youtube.com/watch?v=jbH2HRuot_Y&list=PLR24aVs517wgs8uL1UawG8CgHQWYMx202)
 
 ---
@@ -155,3 +156,11 @@ dotnet new console
 
 * #### [Microsoft.Extensions.ObjectPool](https://www.nuget.org/packages/microsoft.extensions.objectpool/)
 * #### [Newtonsoft.Json](https://www.nuget.org/packages/newtonsoft.json/)
+* #### [.NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-9.0&tabs=visual-studio-code)
+  * 강좌 내에서 사용하는 *Java FX* 대신 사용해 봄직한 데스크톱 제작 툴을 사용하려고 설치함
+  * `sudo dotnet workload install maui`
+  * `dotnet workload uninstall maui`
+  <div align=center>
+      <img src="image/2025-02-25-18-05-00.png" width= 80%>
+      <h5></h5>
+  </div>

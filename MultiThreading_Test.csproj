@@ -8,15 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Client/**" />
-    <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="9.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
+    <Compile Remove="client/**" />
+    <Compile Remove="scripts/Udemy/Csharp/MAUI/**" />
     <Content Include="resources/*.*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="out/*.*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
   </ItemGroup>
 </Project>
